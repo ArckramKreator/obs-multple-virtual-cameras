@@ -111,6 +111,14 @@ build() {
   }
 
   log_group "Configuring ${product_name}..."
+
+  log_group "Xcode and SDK Info"
+  xcodebuild -version
+  xcodebuild -showsdks
+  xcode-select -p
+  xcrun --show-sdk-version
+
+
   cmake -S ${project_root} ${cmake_args}
 
   log_group "Building ${product_name}..."
